@@ -1,13 +1,12 @@
 ﻿using System.Diagnostics;
 using System.Security.Principal;
 using System.Text;
-using System.Windows.Forms;
 
 namespace DotNetUpgradeAssistant
 {
 	internal static class Program
 	{
-		[System.STAThread]
+		[STAThread]
 		private static void Main()
 		{
 			// legacy single-byte encodings (866, 1251, …)
@@ -16,8 +15,7 @@ namespace DotNetUpgradeAssistant
 			Application.SetHighDpiMode(HighDpiMode.PerMonitorV2);
 
 			// elevate if not running as admin (needed for some global dotnet installs)
-			if (!new WindowsPrincipal(WindowsIdentity.GetCurrent())
-				.IsInRole(WindowsBuiltInRole.Administrator))
+			if (!new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator))
 			{
 				try
 				{

@@ -1,5 +1,4 @@
-﻿using System.Windows.Forms;
-
+﻿
 namespace DotNetUpgradeAssistant
 {
 	internal sealed class ProjectInfo
